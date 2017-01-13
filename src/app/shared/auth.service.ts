@@ -1,13 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from "@angular/http";
-import {Register} from "../shared/register.model";
+
 
 @Injectable()
 export class AuthService {
-  register = new Register();
 
-  private url = 'http://localhost:3000/auth';
-
+  private url = 'http://localhost:3000/';
 
   constructor(private http: Http) {
   }
@@ -18,23 +16,21 @@ export class AuthService {
     }
   }
 
-  send() {
-    let body = JSON.stringify({
-      'email': this.register.email,
-      'password': this.register.password,
-      'password_confirmation': this.register.password_confirmation,
-    });
+  send(body) {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions(({headers: headers}));
-
-    return this.http.post(this.url, body, options).subscribe((response) =>
+    return this.http.post(this.url + '/auth', body, options).subscribe((response) =>
       console.log(response.json()));
   }
 
-  login() {
+  login(body) {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
-
-
+    return this.http.post(this.url + '/auth/sign_in', body, options).map((response) => response.json())
+      .subscribe(auth => {
+        console.log(auth.headers);
+        this.saveToken(auth.access_token);
+      });
   }
 }
+

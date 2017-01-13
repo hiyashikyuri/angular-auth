@@ -4,13 +4,15 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {AuthService} from "./shared/auth.service";
-import {RegisterComponent} from './register/register/register.component';
+import {RegisterComponent} from './register/register.component';
+import {SignInComponent} from './sign-in/sign-in.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
