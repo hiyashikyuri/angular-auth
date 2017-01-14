@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Signin} from "../shared/signin.model";
 import {AuthService} from "../shared/auth.service";
 
@@ -10,12 +10,14 @@ import {AuthService} from "../shared/auth.service";
 export class SignInComponent implements OnInit {
 
   signin = new Signin();
-  constructor(private authService: AuthService) { }
+
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
   }
 
-  data(){
+  data() {
     let body = JSON.stringify({
       'email': this.signin.email,
       'password': this.signin.password

@@ -6,20 +6,30 @@ import {AppComponent} from './app.component';
 import {AuthService} from "./shared/auth.service";
 import {RegisterComponent} from './register/register.component';
 import {SignInComponent} from './sign-in/sign-in.component';
-
+import {ListingComponent} from './listing/listing.component';
+import {ListingService} from "./shared/listing.service";
+import {SignOutComponent} from './sign-out/sign-out.component';
+import {CoreModule} from "./core/core.module";
+import {ChangePasswordComponent} from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    SignInComponent
+    SignInComponent,
+    ListingComponent,
+    SignOutComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CoreModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    ListingService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
