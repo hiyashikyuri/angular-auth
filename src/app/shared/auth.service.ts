@@ -82,8 +82,9 @@ export class AuthService {
       'uid': this.uidInfo(),
       'client': this.clientInfo()
     });
+    console.log(headers);
     let options = new RequestOptions({headers: headers});
-    return this.http.put(this.url + '/auth', body, options).subscribe((response) => {
+    return this.http.put(this.url + '/auth/password', body, options).subscribe((response) => {
       console.log(response.json());
     });
   }
