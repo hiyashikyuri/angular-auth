@@ -20,9 +20,8 @@ export class ChangePasswordComponent implements OnInit {
 
   data(){
     let body = JSON.stringify({
-      'passwordCurrent': this.newPassword.passwordCurrent,
       'password': this.newPassword.password,
-      'passwordConfirmation': this.newPassword.passwordConfirmation
+      'password_confirmation': this.newPassword.password_confirmation
     });
     this.authService.changePassword(body)
   }

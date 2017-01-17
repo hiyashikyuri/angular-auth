@@ -78,6 +78,7 @@ export class AuthService {
 
   changePassword(body) {
     let headers = new Headers({
+      'Content-Type': 'application/json',
       'access-token': this.tokenInfo(),
       'uid': this.uidInfo(),
       'client': this.clientInfo()
