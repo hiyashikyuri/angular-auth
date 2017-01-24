@@ -24,5 +24,4 @@ export class SignInComponent implements OnInit {
     });
     this.authService.login(body);
   }
-
 }

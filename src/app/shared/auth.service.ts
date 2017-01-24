@@ -40,7 +40,6 @@ export class AuthService {
     return localStorage.getItem('client');
   }
 
-
   send(body) {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions(({headers: headers}));
@@ -76,7 +75,6 @@ export class AuthService {
     });
   }
 
-
   changePassword(body) {
     let headers = new Headers({
       'Content-Type': 'application/json',
@@ -91,18 +89,6 @@ export class AuthService {
     });
   }
 
-  resetPasswordSender(body) {
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    console.log(headers);
-    let options = new RequestOptions({headers: headers});
-    return this.http.put(this.url + '/auth/password', body, options).subscribe((response) => {
-      console.log(response.json());
-    });
-  }
-
-
   resetPassword(body) {
     let headers = new Headers({
       'Content-Type': 'application/json'
@@ -112,8 +98,6 @@ export class AuthService {
       console.log(response.json());
     })
   }
-
-
 }
 
 

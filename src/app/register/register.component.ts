@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-
   data() {
     let body = JSON.stringify({
       'email': this.register.email,

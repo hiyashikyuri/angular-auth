@@ -10,7 +10,6 @@ import {LoggerService} from "../core/logger.service";
 })
 export class ListingComponent implements OnInit {
 
-
   listings: Entry[] = [];
 
   constructor(private listingService: ListingService,
@@ -18,7 +17,6 @@ export class ListingComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   listingData() {

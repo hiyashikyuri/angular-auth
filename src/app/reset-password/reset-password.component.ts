@@ -15,6 +15,7 @@ export class ResetPasswordComponent implements OnInit {
 
   reset = new ResetPassword();
   newPassword = new Password();
+
   token: string;
   client_id: string;
   uid: string;
@@ -23,23 +24,11 @@ export class ResetPasswordComponent implements OnInit {
               private route: ActivatedRoute) {
   }
 
-
   ngOnInit() {
-
     this.route.queryParams.subscribe(params=> {
-      this.token = params['token'];
-      this.client_id = params['client_id'];
-      this.uid = params['uid'];
-
-      this.authService.Token(this.token);
-      this.authService.Client(this.client_id);
-      this.authService.Uid(this.uid);
-
-      console.log(this.authService.tokenInfo());
-      console.log(this.authService.uidInfo());
-      console.log(this.authService.clientInfo());
-
-
+      this.authService.Token(params['token']);
+      this.authService.Client(params['client_id']);
+      this.authService.Uid(params['uid']);
     });
   }
 
@@ -59,5 +48,4 @@ export class ResetPasswordComponent implements OnInit {
 
     this.authService.changePassword(body);
   }
-
 }

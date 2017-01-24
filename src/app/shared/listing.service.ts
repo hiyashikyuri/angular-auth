@@ -10,7 +10,6 @@ export class ListingService {
               private authService: AuthService) {
   }
 
-
   findAll(): Promise<Entry[]> {
     let headers = new Headers({
       'Access-Token': this.authService.tokenInfo(),
@@ -32,8 +31,6 @@ export class ListingService {
         return entries;
       }).toPromise();
   }
-
-
 }
 
 

@@ -14,7 +14,6 @@ export class SignOutComponent implements OnInit {
   ngOnInit() {
   }
 
-
   data() {
     this.authService.logout();
   }

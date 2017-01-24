@@ -25,5 +25,4 @@ export class ChangePasswordComponent implements OnInit {
     });
     this.authService.changePassword(body)
   }
-
 }
