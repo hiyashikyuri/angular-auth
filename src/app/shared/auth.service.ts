@@ -10,19 +10,19 @@ export class AuthService {
   constructor(private http: Http) {
   }
 
-  private Token(token: any) {
+  Token(token: any) {
     if (token) {
       localStorage.setItem('access-Token', token);
     }
   }
 
-  private Uid(uid: any) {
+  Uid(uid: any) {
     if (uid) {
       localStorage.setItem('uid', uid);
     }
   }
 
-  private Client(client: any) {
+  Client(client: any) {
     if (client) {
       localStorage.setItem('client', client);
     }
@@ -76,6 +76,7 @@ export class AuthService {
     });
   }
 
+
   changePassword(body) {
     let headers = new Headers({
       'Content-Type': 'application/json',
@@ -88,6 +89,28 @@ export class AuthService {
     return this.http.put(this.url + '/auth/password', body, options).subscribe((response) => {
       console.log(response.json());
     });
+  }
+
+  resetPasswordSender(body) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    console.log(headers);
+    let options = new RequestOptions({headers: headers});
+    return this.http.put(this.url + '/auth/password', body, options).subscribe((response) => {
+      console.log(response.json());
+    });
+  }
+
+
+  resetPassword(body) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(this.url + '/auth/password', body, options).subscribe((response) => {
+      console.log(response.json());
+    })
   }
 
 

@@ -11,22 +11,26 @@ import {ListingService} from "./shared/listing.service";
 import {SignOutComponent} from './sign-out/sign-out.component';
 import {CoreModule} from "./core/core.module";
 import {ChangePasswordComponent} from './change-password/change-password.component';
-
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {routing} from "./app.routing";
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    CoreModule,
+    routing
+  ],
   declarations: [
     AppComponent,
     RegisterComponent,
     SignInComponent,
     ListingComponent,
     SignOutComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ResetPasswordComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    CoreModule
-  ],
+
   providers: [
     AuthService,
     ListingService],
