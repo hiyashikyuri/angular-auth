@@ -8,17 +8,29 @@ import {RouterModule} from "@angular/router";
 // import {ThanksComponent} from "./thanks/thanks.component";
 // import {ProductMediaComponent} from "./product-detail/product-media.component";
 //
+import {RegisterComponent} from "./register/register.component";
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {SignInComponent} from "./sign-in/sign-in.component";
+import {SignOutComponent} from "./sign-out/sign-out.component";
+import {ChangePasswordComponent} from "./change-password/change-password.component";
+import {ListingComponent} from "./listing/listing.component";
 
 export const routing: ModuleWithProviders = RouterModule.forRoot([
-    // {path: '', redirectTo: '/' }
-    // {path: 'products/highlights', component: ProductHighlightsComponent},
-    // {path: 'products/estimates', component: ProductEstimatesComponent},
-    // {path: 'products/estimates/form', component: EstimateFormComponent},
-    // {path: 'products/estimates/form/thanks', component: ThanksComponent},
-    // {path: 'products/:id/spec', component: ProductSpecComponent},
-    // {path: 'products/:id/media', component: ProductMediaComponent},
-    // {path: 'products/:filter/:id', component: ProductListComponent},
-    // {path: '**', redirectTo: '/products/highlights'}
+  {path: '', redirectTo: '/#', pathMatch: 'full'},
+  {path: 'register', component: RegisterComponent},
+  {path: 'reset_password', component: ResetPasswordComponent},
+  {path: 'sign_in', component: SignInComponent},
+  {path: 'sign_out', component: SignOutComponent},
+  {path: 'change_password', component: ChangePasswordComponent},
+  {path: 'listings', component: ListingComponent}
+
+  // {path: 'products/estimates', component: ProductEstimatesComponent},
+  // {path: 'products/estimates/form', component: EstimateFormComponent},
+  // {path: 'products/estimates/form/thanks', component: ThanksComponent},
+  // {path: 'products/:id/spec', component: ProductSpecComponent},
+  // {path: 'products/:id/media', component: ProductMediaComponent},
+  // {path: 'products/:filter/:id', component: ProductListComponent},
+  // {path: '**', redirectTo: '/products/highlights'}
 ]);
 
 

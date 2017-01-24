@@ -17,7 +17,7 @@ export class ListingService {
       'Uid': this.authService.uidInfo()
     });
     let options = new RequestOptions({headers: headers});
-    return this.http.get('http://localhost:3000/listings', options)
+    return this.http.get('http://localhost:3000/api/v1/listings', options)
       .map(response => response.json().data)
       .map(data => {
         let entries: Entry[] = [];

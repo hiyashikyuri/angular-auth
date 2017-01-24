@@ -20,6 +20,8 @@ export class RegisterComponent implements OnInit {
 
   data() {
     let body = JSON.stringify({
+      'name': this.register.name,
+      'company': this.register.company,
       'email': this.register.email,
       'password': this.register.password,
       'password_confirmation': this.register.password_confirmation
