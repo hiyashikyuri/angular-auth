@@ -15,9 +15,8 @@ export class ChangeUserInfoComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+
   }
-
-
 
   data(){
     let body = JSON.stringify({
@@ -27,9 +26,5 @@ export class ChangeUserInfoComponent implements OnInit {
     });
 
     this.authService.chnageUserInfo(body);
-
   }
-
-
-
 }

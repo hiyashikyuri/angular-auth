@@ -3,8 +3,7 @@ import {AuthService} from "../shared/auth.service";
 
 @Component({
   selector: 'app-sign-out',
-  templateUrl: './sign-out.component.html',
-  styleUrls: ['./sign-out.component.css']
+  templateUrl: './sign-out.component.html'
 })
 export class SignOutComponent implements OnInit {
 

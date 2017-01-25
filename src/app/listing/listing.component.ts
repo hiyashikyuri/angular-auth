@@ -5,8 +5,7 @@ import {LoggerService} from "../core/logger.service";
 
 @Component({
   selector: 'app-listing',
-  templateUrl: './listing.component.html',
-  styleUrls: ['./listing.component.css']
+  templateUrl: './listing.component.html'
 })
 export class ListingComponent implements OnInit {
 
