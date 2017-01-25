@@ -14,10 +14,12 @@ import {SignInComponent} from "./sign-in/sign-in.component";
 import {SignOutComponent} from "./sign-out/sign-out.component";
 import {ChangePasswordComponent} from "./change-password/change-password.component";
 import {ListingComponent} from "./listing/listing.component";
+import {ChangeUserInfoComponent} from "./change-user-info/change-user-info.component";
 
 export const routing: ModuleWithProviders = RouterModule.forRoot([
-  {path: '', redirectTo: '/#', pathMatch: 'full'},
+  {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: 'register', component: RegisterComponent},
+  {path: 'change_user_info', component: ChangeUserInfoComponent},
   {path: 'reset_password', component: ResetPasswordComponent},
   {path: 'sign_in', component: SignInComponent},
   {path: 'sign_out', component: SignOutComponent},

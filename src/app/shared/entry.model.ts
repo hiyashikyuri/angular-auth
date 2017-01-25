@@ -1,6 +1,12 @@
+import {Book} from "../shared/book.model";
 export class Entry {
   constructor(public id?: number,
-              public  name?: string,
-              public  body?: string) {
+              public  title?: string,
+              public  content?: string,
+              public books?: Book[]) {
   }
 }
+
+
+
+

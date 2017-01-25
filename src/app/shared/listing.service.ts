@@ -25,7 +25,8 @@ export class ListingService {
           entries.push(new Entry(
             data['id'],
             data['title'],
-            data['content']
+            data['content'],
+            data['books'] ? data['books'].map((entry: any[]) => new Entry(entry['id'], entry['book'], 'book')) : [],
           ));
         });
         return entries;

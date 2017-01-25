@@ -40,12 +40,26 @@ export class AuthService {
     return localStorage.getItem('client');
   }
 
-  send(body) {
+  register(body) {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions(({headers: headers}));
     return this.http.post(this.url + '/auth', body, options).subscribe((response) =>
       console.log(response.json()));
   }
+
+  chnageUserInfo(body){
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'access-token': this.tokenInfo(),
+      'uid': this.uidInfo(),
+      'client': this.clientInfo()
+    });
+    let options = new RequestOptions(({headers: headers}));
+    return this.http.put(this.url + '/auth', body, options).subscribe((response) =>
+      console.log(response.json()));
+  }
+
+
 
   login(body) {
     let headers = new Headers({'Content-Type': 'application/json'});

@@ -26,6 +26,6 @@ export class RegisterComponent implements OnInit {
       'password': this.register.password,
       'password_confirmation': this.register.password_confirmation
     });
-    this.authService.send(body)
+    this.authService.register(body)
   }
 }

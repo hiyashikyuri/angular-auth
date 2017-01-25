@@ -13,6 +13,7 @@ import {CoreModule} from "./core/core.module";
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {routing} from "./app.routing";
+import { ChangeUserInfoComponent } from './change-user-info/change-user-info.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -28,7 +29,8 @@ import {routing} from "./app.routing";
     ListingComponent,
     SignOutComponent,
     ChangePasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ChangeUserInfoComponent
   ],
 
   providers: [
