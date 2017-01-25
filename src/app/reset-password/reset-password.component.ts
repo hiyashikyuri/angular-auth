@@ -34,17 +34,9 @@ export class ResetPasswordComponent implements OnInit {
   data() {
     let body = JSON.stringify({
       'email': this.reset.email,
-      'redirect_url': 'http://localhost:4200/reset_password'
+      'redirect_url': 'http://localhost:4200/change_password'
     });
     this.authService.resetPassword(body);
   }
-
-  password() {
-    let body = JSON.stringify({
-      'password': this.newPassword.password,
-      'password_confirmation': this.newPassword.password_confirmation
-    });
-
-    this.authService.changePassword(body);
-  }
 }
+

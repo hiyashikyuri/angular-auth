@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../shared/auth.service";
 import {Password} from "../shared/password.model";
 
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-change-password',
@@ -11,13 +12,19 @@ export class ChangePasswordComponent implements OnInit {
 
   newPassword = new Password();
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params=> {
+      this.authService.Token(params['token']);
+      this.authService.Client(params['client_id']);
+      this.authService.Uid(params['uid']);
+    });
   }
 
-  data(){
+  data() {
     let body = JSON.stringify({
       'password': this.newPassword.password,
       'password_confirmation': this.newPassword.password_confirmation

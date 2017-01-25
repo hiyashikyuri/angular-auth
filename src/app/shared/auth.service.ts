@@ -47,7 +47,7 @@ export class AuthService {
       console.log(response.json()));
   }
 
-  chnageUserInfo(body){
+  chnageUserInfo(body) {
     let headers = new Headers({
       'Content-Type': 'application/json',
       'access-token': this.tokenInfo(),
@@ -58,7 +58,6 @@ export class AuthService {
     return this.http.put(this.url + '/auth', body, options).subscribe((response) =>
       console.log(response.json()));
   }
-
 
 
   login(body) {
@@ -110,7 +109,7 @@ export class AuthService {
     let options = new RequestOptions({headers: headers});
     return this.http.post(this.url + '/auth/password', body, options).subscribe((response) => {
       console.log(response.json());
-    })
+    });
   }
 }
 
