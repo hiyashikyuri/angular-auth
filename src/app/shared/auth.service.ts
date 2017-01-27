@@ -7,38 +7,73 @@ export class AuthService {
 
   private url = 'http://localhost:3000';
 
+
   constructor(private http: Http) {
   }
 
-  Token(token: any) {
-    if (token) {
-      localStorage.setItem('access-Token', token);
-    }
+  // set xxxx(){} にする
+  // 頭文字は小文字
+
+
+  // Token(token: any) {
+  //   if (token) {
+  //     localStorage.setItem('access-Token', token);
+  //   }
+  // }
+
+
+  // Uid(uid: any) {
+  //   if (uid) {
+  //     localStorage.setItem('uid', uid);
+  //   }
+  // }
+
+  // Client(client: any) {
+  //   if (client) {
+  //     localStorage.setItem('client', client);
+  //   }
+  // }
+
+
+  setToken(token) {
+    localStorage.setItem('access-token', token);
   }
 
-  Uid(uid: any) {
-    if (uid) {
-      localStorage.setItem('uid', uid);
-    }
+  setUid(uid) {
+    localStorage.setItem('uid', uid);
   }
 
-  Client(client: any) {
-    if (client) {
-      localStorage.setItem('client', client);
-    }
+  setClient(client) {
+    localStorage.setItem('client', client);
   }
 
-  tokenInfo() {
-    return localStorage.getItem('access-Token');
+
+  // get(){} にする
+
+  getTokenInfo(): any {
+    return localStorage.getItem('access-token');
   }
 
-  uidInfo() {
+  getUidInfo(): any {
     return localStorage.getItem('uid');
   }
 
-  clientInfo() {
+  getClientInfo(): any {
     return localStorage.getItem('client');
   }
+
+  //
+  // tokenInfo() {
+  //   return localStorage.getItem('access-Token');
+  // }
+  //
+  // uidInfo() {
+  //   return localStorage.getItem('uid');
+  // }
+  //
+  // clientInfo() {
+  //   return localStorage.getItem('client');
+  // }
 
   register(body) {
     let headers = new Headers({'Content-Type': 'application/json'});
@@ -47,12 +82,12 @@ export class AuthService {
       console.log(response.json()));
   }
 
-  chnageUserInfo(body) {
+  changeUserInfo(body) {
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'access-token': this.tokenInfo(),
-      'uid': this.uidInfo(),
-      'client': this.clientInfo()
+      'access-token': this.getTokenInfo(),
+      'uid': this.getUidInfo(),
+      'client': this.getClientInfo()
     });
     let options = new RequestOptions(({headers: headers}));
     return this.http.put(this.url + '/auth', body, options).subscribe((response) =>
@@ -68,18 +103,25 @@ export class AuthService {
       let token = response.headers.get('access-token');
       let uid = response.headers.get('uid');
       let client = response.headers.get('client');
+      console.log(token);
+      console.log(uid);
+      console.log(client);
 
-      this.Token(token);
-      this.Client(client);
-      this.Uid(uid);
+      console.log(this);
+      this.setToken(token);
+      this.setClient(client);
+      this.setUid(uid);
+      // this.Token(token);
+      // this.Client(client);
+      // this.Uid(uid);
     });
   }
 
   logout() {
     let headers = new Headers({
-      'access-token': this.tokenInfo(),
-      'uid': this.uidInfo(),
-      'client': this.clientInfo()
+      'access-token': this.getTokenInfo(),
+      'uid': this.getUidInfo(),
+      'client': this.getClientInfo()
     });
 
     let options = new RequestOptions({headers: headers});
@@ -91,9 +133,9 @@ export class AuthService {
   changePassword(body) {
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'access-token': this.tokenInfo(),
-      'uid': this.uidInfo(),
-      'client': this.clientInfo()
+      'access-token': this.getTokenInfo(),
+      'uid': this.getUidInfo(),
+      'client': this.getClientInfo()
     });
     console.log(headers);
     let options = new RequestOptions({headers: headers});
@@ -101,6 +143,7 @@ export class AuthService {
       console.log(response.json());
     });
   }
+
 
   resetPassword(body) {
     let headers = new Headers({

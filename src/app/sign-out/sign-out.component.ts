@@ -17,3 +17,4 @@ export class SignOutComponent implements OnInit {
     this.authService.logout();
   }
 }
+

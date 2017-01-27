@@ -25,6 +25,6 @@ export class ChangeUserInfoComponent implements OnInit {
       'email': this.userData.email,
     });
 
-    this.authService.chnageUserInfo(body);
+    this.authService.changeUserInfo(body);
   }
 }

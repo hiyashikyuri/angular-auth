@@ -12,9 +12,9 @@ export class ListingService {
 
   findAll(): Promise<Entry[]> {
     let headers = new Headers({
-      'Access-Token': this.authService.tokenInfo(),
-      'Client': this.authService.clientInfo(),
-      'Uid': this.authService.uidInfo()
+      'access-Token': this.authService.getTokenInfo(),
+      'client': this.authService.getClientInfo(),
+      'uid': this.authService.getUidInfo()
     });
     let options = new RequestOptions({headers: headers});
     return this.http.get('http://localhost:3000/api/v1/listings', options)
