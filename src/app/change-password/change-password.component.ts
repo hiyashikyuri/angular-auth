@@ -18,9 +18,9 @@ export class ChangePasswordComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params=> {
-      this.authService.token(params['token']);
-      this.authService.client(params['client_id']);
-      this.authService.uid(params['uid']);
+      this.authService.setToken(params['token']);
+      this.authService.setClient(params['client_id']);
+      this.authService.setUid(params['uid']);
     });
   }
 
